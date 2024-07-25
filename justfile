@@ -11,26 +11,31 @@ default:
 var:
     @just --justfile '{{justfile()}}' --evaluate
 
-install-asdf:
-    brew install asdf
-    ln -s "./asdf/tool-versions" "${HOME}/.tool-versions"
-
-install-hammerspoon:
-    brew install --cask --no-quarantine hammerspoon
-    defaults write org.hammerspoon.Hammerspoon MJConfigFile "${XDG_CONFIG_HOME:-$HOME/.config}"/hammerspoon/init.lua
-
-
-install-openvanilla:
-    brew install openvanilla
-    mkdir -p "${HOME}/Library/Application Support/OpenVanilla/UserData/TableBased/erbi.cin"
-    ln -s "./backups/erbi/OpenVanilla/erbi.cin" "${HOME}/Library/Application Support/OpenVanilla/UserData/TableBased/erbi.cin"
-
-install-iina:
+app-media-install-iina:
     brew install --cask iina
     mkdir -p "${HOME}/Library/Application Support/com.colliderli.iina/input_conf/IINA_MY.conf"
     ln -s "${HOME}/.config/backups/iina/input_conf/IINA_MY.conf" "Library/Application Support/com.colliderli.iina/input_conf/IINA_MY.conf"
-    
 
+base-asdf:
+    # step1: install asdf
+    brew install asdf
+    # step2: install plugs by asdf/tool-versions
+    ln -s "./asdf/tool-versions" "${HOME}/.tool-versions"
+    # step3: install tools with version by asdf/tool-versions
+    asdf install
+
+dev-tool-rust:
+    brew install rustup
+    rustup default stable
+
+sys-app-install-hammerspoon:
+    brew install --cask --no-quarantine hammerspoon
+    defaults write org.hammerspoon.Hammerspoon MJConfigFile "${XDG_CONFIG_HOME:-$HOME/.config}"/hammerspoon/init.lua
+
+sys-ime-openvanilla:
+    brew install openvanilla
+    mkdir -p "${HOME}/Library/Application Support/OpenVanilla/UserData/TableBased/erbi.cin"
+    ln -s "./backups/erbi/OpenVanilla/erbi.cin" "${HOME}/Library/Application Support/OpenVanilla/UserData/TableBased/erbi.cin"
 
 local-setup:
     #!/usr/bin/env bash
@@ -65,5 +70,5 @@ local-setup:
     fi
 
 serv-pm2-setup:
-    pm2 start "${HOME}/.local/bin/autoadb" -- "${HOME}/.config/backups/raycast/scirpt-commands/pixel4scrcpy.sh" "{}"
+    pm2 start "${HOME}/.local/bin/autoadb" --name autoadb_scrcpy -- "${HOME}/.config/backups/raycast/scirpt-commands/pixel4scrcpy.sh" "{}"
     pm2 start "/opt/homebrew/bin/openresty" --name serv_openresty_sites -- -c "${HOME}/Sites/nginx.conf" -e "${HOME}/Sites/_nginx/error.log" -g "daemon off;" -p "${HOME}/Sites/_nginx"
