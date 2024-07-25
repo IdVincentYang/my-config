@@ -1,0 +1,60 @@
+# vi: ft=sh
+# [doc](https://just.systems/man/zh/)
+# [grammar](https://github.com/casey/just/blob/master/GRAMMAR.md)
+# [cheetsheet](https://cheatography.com/linux-china/cheat-sheets/justfile/)
+
+kPWD := justfile_directory()
+
+default:
+    @just --justfile '{{justfile()}}' --list
+
+var:
+    @just --justfile '{{justfile()}}' --evaluate
+
+submodule-setup:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    _OH_MY_ZSH="share/oh-my-zsh"
+    if [ ! -e "$_OH_MY_ZSH" ]; then
+        git submodule add "https://github.com/ohmyzsh/ohmyzsh.git" "$_OH_MY_ZSH"
+        git commit -am "[submodule] $_OH_MY_ZSH"
+    fi
+    _AUTOSUGGESTIONS="share/oh-my-zsh-custom/plugins/zsh-autosuggestions"
+    if [ ! -e "$_AUTOSUGGESTIONS" ]; then
+        git submodule add "https://github.com/zsh-users/zsh-autosuggestions.git" "$_AUTOSUGGESTIONS"
+        git commit -am "[submodule] $_AUTOSUGGESTIONS"
+    fi
+    _HISTORY_SUBSTRING_SEARCH="share/oh-my-zsh-custom/plugins/zsh-history-substring-search"
+    if [ ! -e "$_HISTORY_SUBSTRING_SEARCH" ]; then
+        git submodule add "https://github.com/zsh-users/zsh-history-substring-search.git" "$_HISTORY_SUBSTRING_SEARCH"
+        git commit -am "[submodule] $_HISTORY_SUBSTRING_SEARCH"
+    fi
+    _SYNTAX_HIGHLIGHTING="share/oh-my-zsh-custom/plugins/zsh-syntax-highlighting"
+    if [ ! -e "$_SYNTAX_HIGHLIGHTING" ]; then
+        git submodule add "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$_SYNTAX_HIGHLIGHTING"
+        git commit -am "[submodule] $_SYNTAX_HIGHLIGHTING"
+    fi
+    _THE_THEMES="share/oh-my-zsh-custom/themes"
+    if [ ! -e "$_THE_THEMES" ]; then
+        git submodule add "https://github.com/agnoster/agnoster-zsh-theme.git" "$_THE_THEMES"
+        git commit -am "[submodule] $_THE_THEMES"
+    fi
+
+colorized-logs-setup:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    _REPO="https://github.com/kilobyte/colorized-logs.git"
+    _PWD="share/colorized-logs"
+    _PREFIX="${HOME}/.local"
+    _BIN="${_PREFIX}/bin/ansi2txt"  # for check has been installed
+    if [ ! -e "$_BIN" ]; then
+        if [ ! -e "$_PWD" ]; then
+            git clone --depth 1 "$_REPO" "$_PWD"
+        fi
+        cd "$_PWD"
+        [[ -e "build" ]] && rm -rf "build"
+        mkdir "build" && pushd "build"
+        cmake -DCMAKE_INSTALL_PREFIX:PATH="$_PREFIX" .. && make && make install
+        popd && rm -rf "build"
+    fi
+
