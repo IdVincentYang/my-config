@@ -65,5 +65,5 @@ local-setup:
     fi
 
 serv-pm2-setup:
-    pm2 start "${HOME}/.local/bin/autoadb" -- "${HOME}/.config/backups/raycast/scirpt-commands/pixel4scrcpy.sh {}"
+    pm2 start "${HOME}/.local/bin/autoadb" -- "${HOME}/.config/backups/raycast/scirpt-commands/pixel4scrcpy.sh" "{}"
     pm2 start "/opt/homebrew/bin/openresty" --name serv_openresty_sites -- -c "${HOME}/Sites/nginx.conf" -e "${HOME}/Sites/_nginx/error.log" -g "daemon off;" -p "${HOME}/Sites/_nginx"
