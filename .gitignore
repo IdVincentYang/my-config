@@ -16,12 +16,11 @@
 # include backups all
 !/backups/
 
-# include backups/althttpd content
-/backups/althttpd/*
-!/backups/althttpd/*.sh
-
 # include bash config
 !/bash/
+
+# include bat config
+!/bat/
 
 # include broot config
 !/broot/
