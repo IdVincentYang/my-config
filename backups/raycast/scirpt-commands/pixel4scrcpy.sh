@@ -33,9 +33,7 @@ if [ "$1" = "$ANDROID_SERIAL" ]; then
     else
         echo "Command 'scrcpy' not find in path: $PATH"
     fi
-elif [[ "$1" = "emulator-"* ]]; then
-    # is android emulator, do nothing
-else
+elif [[ "$1" != "emulator-"* ]]; then
     echo "$@" > ~/Downloads/autoadb.txt
     echo "Unsupport param, detail in ~/Downloads/autoadb.txt"
     exit 1
