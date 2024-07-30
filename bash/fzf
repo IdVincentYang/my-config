@@ -1,5 +1,6 @@
 # vi: ft=sh
 
+# [repo](https://github.com/junegunn/fzf)
 # https://github.com/junegunn/fzf/blob/master/README-VIM.md
 # https://zhuanlan.zhihu.com/p/41859976
 
@@ -91,3 +92,31 @@ else
     echo "Reach invalid branch of $BASH_CFG/fzf!"
 fi
 
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+# _fzf_comprun() {
+#   local command=$1
+#   shift
+#
+#   case "$command" in
+#     cd)           fzf --preview 'tree -C {} | head -200'   "$@" ;;
+#     export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+#     ssh)          fzf --preview 'dig {}'                   "$@" ;;
+#     *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
+#   esac
+# }
+
+# Custom fuzzy completion
+# For a command named "COMMAND", define _fzf_complete_COMMAND function using _fzf_complete helper.
+# Custom fuzzy completion for "doge" command
+# If you need to post-process the output from fzf, define _fzf_complete_COMMAND_post as follows.
+#   e.g. foo **<TAB>
+# _fzf_complete_foo() {
+#   _fzf_complete --multi --reverse --header-lines=3 -- "$@" < <(
+#     ls -al
+#   )
+# }
+# _fzf_complete_foo_post() {
+#   awk '{print $NF}'
+# }
