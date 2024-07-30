@@ -10,7 +10,7 @@ export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zcompdump-${HOST/.*/}-${ZSH_VERSION}"
 ### Pre config for plug z: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/z/README
 
 # change the datafile location
-export _Z_DATA="$HOME/.local/state/z"
+# export _Z_DATA="$HOME/.local/state/z"
 # exclude dirs array
 #$_Z_EXCLUDE_DIRS=
 
@@ -413,10 +413,10 @@ plugins=(
 # yii
 # yii2
 # yum
-    z         # Cmd: z
+# z         # Cmd: z
 # zbell
 # zeus
-# zoxide
+zoxide
 # zsh-interactive-cd
 # zsh-navigation-tools
 )

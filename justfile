@@ -17,7 +17,7 @@ app-media-install-iina:
     ln -s "${HOME}/.config/backups/iina/input_conf/IINA_MY.conf" "Library/Application Support/com.colliderli.iina/input_conf/IINA_MY.conf"
 
 base-cmds:
-    brew install autoconf automake p7zip tree
+    brew install autoconf automake p7zip tree zoxide
     ### fonts
     #   nerd fonts(https://github.com/ryanoasis/nerd-fonts/blob/master/readme_cn.md)
     #       config terminal: menu->setting...->text->font->change font
