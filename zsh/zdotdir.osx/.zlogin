@@ -1,1 +1,1 @@
-export __ZDOTLOADED="$__ZDOTLOADED\n$ZDOTDIR/.zlogin"
+export __ZDOTLOADED="$__ZDOTLOADED:$ZDOTDIR/.zlogin"

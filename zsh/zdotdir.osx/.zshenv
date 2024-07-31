@@ -29,5 +29,5 @@ if [ -z "${__ZDOTLOADED}" ]; then
     source "${BASH_CFG}/xdg_dirs"
 
     # set variable __ZDOTLOADED for dot file load track
-    export __ZDOTLOADED="$__ZDOTLOADED\n$ZDOTDIR/.zshenv"
+    export __ZDOTLOADED="$__ZDOTLOADED:$ZDOTDIR/.zshenv"
 fi

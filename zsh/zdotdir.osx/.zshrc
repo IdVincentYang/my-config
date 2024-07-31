@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/zdotdir.osx/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ################################################################################
 # "read" Usage: read -r [VAR]
 #   -r causes the string to be interpreted "raw" (without considering backslash escapes)
@@ -115,4 +122,7 @@ if [[ ! "$__CFBundleIdentifier" =~ "warp" ]]; then
     bindkey "^k" up-line-or-history
 fi
 
-export __ZDOTLOADED="$__ZDOTLOADED\n$ZDOTDIR/.zshrc"
+# To customize prompt, run `p10k configure` or edit ${ZDOTDIR}/.p10k.zsh.
+[[ ! -f "${ZDOTDIR}/.p10k.zsh" ]] || source "${ZDOTDIR}/.p10k.zsh"
+
+export __ZDOTLOADED="$__ZDOTLOADED:$ZDOTDIR/.zshrc"

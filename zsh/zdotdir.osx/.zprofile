@@ -1,6 +1,4 @@
 
-export PATH="$HOME/.local/bin:$PATH"
-
 # Homebrew installed bin path
 if which /opt/homebrew/bin/brew > /dev/null; then
     eval $(/opt/homebrew/bin/brew shellenv)
@@ -33,6 +31,9 @@ if [ -d ~/Library/Android/sdk ]; then
     export PATH=${ANDROID_SDK_ROOT}/platform-tools:${PATH}
 fi
 
+# rustup toolchain path
+[ -d "${HOME}/.cargo" ] && source "${HOME}/.cargo/env"
+
 # npm config: https://docs.npmjs.com/cli/v7/using-npm/config
 if which npm > /dev/null; then
     export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/config"
@@ -49,4 +50,16 @@ else
     echo "[WARN] pm2 not installed, via 'npm install -g pm2' to install."
 fi
 
-export __ZDOTLOADED="$__ZDOTLOADED\n$ZDOTDIR/.zprofile"
+# local/bin path
+_LOCAL_BIN="${HOME}/.local/bin"
+if [ -d "${_LOCAL_BIN}" ]; then
+    case ":${PATH}:" in
+        *:"${_LOCAL_BIN}":*)
+            ;;
+        *)
+            export PATH="${_LOCAL_BIN}:$PATH"
+            ;;
+    esac
+fi
+
+export __ZDOTLOADED="$__ZDOTLOADED:$ZDOTDIR/.zprofile"

@@ -22,8 +22,7 @@ if [ -f "$OMZ_DIR/oh-my-zsh.sh" ]; then
 
 else
     cat << EOF
-[WARN] oh-my-zsh not found, please install it under home:
-    git submodule update --init
+[WARN] oh-my-zsh not found
 
 Due to some zsh plugin's feature has been supported by terminal app,
     so these plugins should load manually in different env:
