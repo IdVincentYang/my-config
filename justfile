@@ -149,7 +149,7 @@ dev-app:
     #       reset tral version: rm "/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat"
     brew install --cask beyond-compare
     #   cmd: count source lines
-    brew install cloc
+    brew install tokei
 
     ### C++ dev tools
     brew install cmake
