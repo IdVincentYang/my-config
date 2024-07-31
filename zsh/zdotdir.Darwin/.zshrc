@@ -14,28 +14,26 @@ fi
 ################################################################################
 
 # 导出二笔输入法码表路径: Path of ErBi
-export PEB="${XDG_CONFIG_HOME}/backups/erbi/OpenVanilla/erbi.cin"
+export MY_ERBI_CIN="${XDG_CONFIG_HOME}/backups/erbi/OpenVanilla/erbi.cin"
 
 # 导出 source.sparsebundle 的路径
-export PSRC_BUNDLE="${HOME}/archives.noindex/Public/Source.sparsebundle"
-export PSRC_DIR="/Volumes/Source"
-
-export no_proxy="localhost, 127.0.0.1, ::1"
+export MY_SOURCE_BUNDLE="${HOME}/archives.noindex/Public/Source.sparsebundle"
+export MY_SOURCE_DIR="/Volumes/Source"
 
 if [ $VIM ]; then
-        export PS1='[VIM]\h:\w\$ '
+    export PS1='[VIM]\h:\w\$ '
 fi
 
 # Setting terminal proxy via clash
-# source "${BASH_CFG}/proxy"
+# source "${MYSH}/proxy"
 # proxyset -s "socks5h://127.0.0.1:7890" "http://127.0.0.1:7890"
 
-source "${ZSH_CFG}/zshrc"
+source "${MYSH}/zshrc"
 
-source "${BASH_CFG}/alias"
-source "${BASH_CFG}/alias.osx"
+source "${MYSH}/alias"
+source "${MYSH}/alias.osx"
 
-source "$BASH_CFG/utils"
+source "$MYSH/utils"
 
 ################################################################################
 # command tools config begin:
@@ -74,7 +72,7 @@ fi
 
 # fzf config: https://github.com/junegunn/fzf.vim
 if which fzf > /dev/null; then
-    source $BASH_CFG/fzf
+    source $MYSH/fzf
 fi
 
 # go config
@@ -95,7 +93,7 @@ fi
 # Override wine default storage folder $XDG_DATA_HOME to it's sub dir wineprefixes/default
 #export WINE_PREFIX_ROOT="${XDG_DATA_HOME}/wineprefixes"
 #export WINEPREFIX="${WINE_PREFIX_ROOT}/default"
-# If want change wine environment, can source "$BASH_CFG/wine" for helper function:
+# If want change wine environment, can source "$MYSH/wine" for helper function:
 #   - winenv
 #   - wine
 # After MacOS 10.15, MacOS don't support 32 bit binary, but 32 bit wine includes in wine-stable yet.

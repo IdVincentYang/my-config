@@ -416,7 +416,7 @@ plugins=(
 # z         # Cmd: z
 # zbell
 # zeus
-zoxide
+zoxide      # Cmd: z, zi
 # zsh-interactive-cd
 # zsh-navigation-tools
 )

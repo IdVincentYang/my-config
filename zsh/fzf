@@ -89,7 +89,7 @@ if which fd > /dev/null; then
         fd --one-file-system --hidden --type d . "$1"
     }
 else
-    echo "Reach invalid branch of $BASH_CFG/fzf!"
+    echo "Reach invalid branch of $MYSH/fzf!"
 fi
 
 # Advanced customization of fzf options via _fzf_comprun function

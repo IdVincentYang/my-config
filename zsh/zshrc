@@ -18,7 +18,7 @@ export OMZ_DIR="${XDG_DATA_HOME}/oh-my-zsh"
 export OMZ_CUSTOM_DIR="${XDG_DATA_HOME}/oh-my-zsh-custom"
 
 if [ -f "$OMZ_DIR/oh-my-zsh.sh" ]; then
-    source "$ZSH_CFG/omzrc"
+    source "$MYSH/omzrc"
 
 else
     cat << EOF

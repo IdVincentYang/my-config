@@ -22,11 +22,10 @@ if [ -z "${__ZDOTLOADED}" ]; then
     export LANG=en_US.UTF-8
 
     # Define home env variables
-    export BASH_CFG="$HOME/.config/bash"
-    export ZSH_CFG="$HOME/.config/zsh"
+    export MYSH="$HOME/.config/zsh"
 
     # Define XDG like system dirs
-    source "${BASH_CFG}/xdg_dirs"
+    source "${MYSH}/xdg_dirs"
 
     # set variable __ZDOTLOADED for dot file load track
     export __ZDOTLOADED="$__ZDOTLOADED:$ZDOTDIR/.zshenv"

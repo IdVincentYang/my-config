@@ -23,13 +23,13 @@ _SCRIPT_C_EXECUTE_OPTION=
 
 #endif
 
-source "$BASH_CFG/script_c"
+source "$MYSH/script_c"
 '
 fi #end of if [[ "${_SCRIPT_C_ECHO_OFF}" != true ]] ; then
 
 
 _SCRIPT_ENV_ECHO_OFF=true
-source $BASH_CFG/script_env
+source $MYSH/script_env
 unset _SCRIPT_ENV_ECHO_OFF
 
 function _string_in_array() {
