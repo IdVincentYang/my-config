@@ -179,7 +179,7 @@ alias ,netports='netstat -tulanp'
 alias ,netipinfo="curl ifconfig.me && curl ifconfig.me/host"
 
 ################################################################################
-# Virtualbox
-alias ,vbusstart='VBoxManage startvm --type headless UbuntuS16'
-alias ,vbusstop='VBoxManage controlvm UbuntuS16 poweroff'
-
+# visual machines
+alias ,vmstartu='vmrun start ~/Virtual\ Machines.localized/u_vm_m1.vmwarevm nogui'
+alias ,vmstopu='vmrun stop ~/Virtual\ Machines.localized/u_vm_m1.vmwarevm'
+alias ,vml='vmrun list'
