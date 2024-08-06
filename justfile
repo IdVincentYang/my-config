@@ -222,6 +222,8 @@ sys-tray-extensions:
     #   tray: nearby, share items with nearby android
     #       https://github.com/grishka/NearDrop
     brew install --cask grishka/grishka/neardrop
+    #   tray: system monitor util
+    brew install --cask stats
 
 sys-ql:
     # mac app info viewer, include ql plugin
