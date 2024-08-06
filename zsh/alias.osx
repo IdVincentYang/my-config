@@ -5,7 +5,6 @@ alias ll='ls -l'
 alias ll.='l. -l'
 
 alias rg='rg -S'
-[[ $KITTY_WINDOW_ID ]] && alias rg='rg --hyperlink-format=kitty'
 
 alias vi='mvim'
 

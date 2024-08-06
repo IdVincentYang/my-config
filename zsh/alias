@@ -180,8 +180,9 @@ alias ,netipinfo="curl ifconfig.me && curl ifconfig.me/host"
 
 ################################################################################
 # kitten
-alias ,ks="kitten ssh"
+alias ,kh='kitten hyperlinked-grep"
 alias ,ki="kitten icat"
+alias ,ks="kitten ssh"
 
 ################################################################################
 # visual machines
