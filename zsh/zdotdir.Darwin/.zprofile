@@ -7,8 +7,8 @@ if which /opt/homebrew/bin/brew > /dev/null; then
 
     # export HOMEBREW_NO_INSTALL_FROM_API=1
 
-    if which /opt/homebrew/opt/curl/bin/curl > /dev/null; then
-        export HOMEBREW_CURL_PATH="/opt/homebrew/opt/curl/bin/curl"
+    if which $HOMEBREW_PREFIX/opt/curl/bin/curl > /dev/null; then
+        export HOMEBREW_CURL_PATH="$HOMEBREW_PREFIX/opt/curl/bin/curl"
     fi
 fi
 
@@ -50,7 +50,7 @@ else
     echo "[WARN] pm2 not installed, via 'npm install -g pm2' to install."
 fi
 
-# local/bin path
+# add local/bin to path variable if not exists
 _LOCAL_BIN="${HOME}/.local/bin"
 if [ -d "${_LOCAL_BIN}" ]; then
     case ":${PATH}:" in

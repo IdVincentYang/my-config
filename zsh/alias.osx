@@ -1,3 +1,12 @@
+alias ls='gls -G --color=auto'
+alias lsl='ls --hyperlink=auto'
+alias l.='ls -a'
+alias l1='ls -1'
+alias l1l='l1 --hyperlink=auto'
+alias ll='ls -l'
+alias ll.='l. -l'
+alias lll='ll --hyperlink-auto'
+
 alias vi='mvim'
 
 alias ,a='brew'

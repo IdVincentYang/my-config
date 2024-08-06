@@ -179,6 +179,11 @@ alias ,netports='netstat -tulanp'
 alias ,netipinfo="curl ifconfig.me && curl ifconfig.me/host"
 
 ################################################################################
+# kitten
+alias ,ks="kitten ssh"
+alias ,ki="kitten icat"
+
+################################################################################
 # visual machines
 alias ,vmstartu='vmrun start ~/Virtual\ Machines.localized/u_vm_m1.vmwarevm nogui'
 alias ,vmstopu='vmrun stop ~/Virtual\ Machines.localized/u_vm_m1.vmwarevm'

@@ -34,6 +34,7 @@ source "${MYSH}/alias"
 source "${MYSH}/alias.osx"
 
 source "$MYSH/utils"
+source "$MYSH/utils.osx"
 
 ################################################################################
 # command tools config begin:
