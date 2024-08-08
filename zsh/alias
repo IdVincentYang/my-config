@@ -1,3 +1,11 @@
+alias help=$(which tldr || which man)
+
+alias l.='ls -a'
+alias l1='ls -1'
+alias ll='ls -l'
+alias ll.='l. -l'
+
+[[ $KITTY_WINDOW_ID ]] && alias rgh='rg --hyperlink-format=kitty'
 
 ################################################################################
 # adb shotcut
