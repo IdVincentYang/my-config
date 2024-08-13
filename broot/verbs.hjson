@@ -127,7 +127,7 @@ verbs: [
     { key: "ctrl-k", execution: ":line_up" }
     { key: "ctrl-l", execution: ":open_stay" }
     { key: "ctrl-u", execution: ":page_up" }
-    { key: "delete", internal: ":input_clear" }
+    { key: "ctrl-delete", internal: ":input_clear" }
     # If you develop using git, you might like to often switch
     # to the git status filter:
     # {
