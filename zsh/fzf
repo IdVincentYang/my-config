@@ -38,7 +38,7 @@ export FZF_DEFAULT_OPTS="
     --bind 'ctrl-o:execute(open {+})'
     --bind 'ctrl-q:abort+execute([[ $KITTY_WINDOW_ID ]] && kitty icat --clear)'
     --bind 'ctrl-s:execute(code {+})'
-    --bind 'ctrl-v:execute(echo {+} | xargs -o mvim)'
+    --bind 'ctrl-v:execute(mvim --servername shell --remote {+}) '
     --bind 'ctrl-y:execute-silent(echo -e {+} | pbcopy)+abort'
     --bind 'ctrl-space:change-preview-window(down|hidden|)'
     --bind 'enter:accept+execute-silent([[ $KITTY_WINDOW_ID ]] && kitty icat --clear)'

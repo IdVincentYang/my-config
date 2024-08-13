@@ -1,11 +1,5 @@
 # vi: set ft=sh:
 
-# View std output in vi
-function ,vvi {
-    eval "$@ | ansi2txt | col -b | vi -R -"
-}
-
-
 function ,interval() {
     local _ARGC=$#
     if [[ $_ARGC -eq 0 ]]; then
