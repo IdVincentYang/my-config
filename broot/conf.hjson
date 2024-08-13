@@ -52,7 +52,7 @@
 #
 # You may start either in 'command' mode, or in 'input' mode
 #
-modal: true
+#modal: true
 initial_mode: command
 
 ###############################################################
