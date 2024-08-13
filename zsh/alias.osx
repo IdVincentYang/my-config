@@ -9,6 +9,7 @@ alias ,ai='brew install'
 alias ,as='brew search'
 alias ,aud='brew update'
 alias ,aug='brew upgrade'
+alias ,augc='brew upgrade --cask'
 alias ,aui='brew uninstall'
 
 # Beyond Compare Trial Date Reset
