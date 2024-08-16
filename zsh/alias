@@ -8,7 +8,7 @@ alias ll.='l. -l'
 [[ $KITTY_WINDOW_ID ]] && alias rgh='rg --hyperlink-format=kitty'
 
 ################################################################################
-# adb shotcut
+# AA: adb shotcut
 
 _ADB_SCREEN_CAPTURE_USAGE="Usage: <cmd> [path, default='/tmp/screenshot.png']"
 function _adb_screen_capture() {
@@ -39,7 +39,7 @@ alias ,adbtopactivity='adb shell dumpsys activity top | grep ACTIVITY' # get top
 alias ,adbwifisignal='adb shell settings put global captive_portal_detection_enabled' # 0, 1
 
 ################################################################################
-# Docker
+# DD: Docker
 alias ,d='docker'
 alias ,dci='docker rmi $(docker images -q -f dangling=true)'
 alias ,dcc='docker rm $(docker ps -a -q)'
@@ -56,32 +56,11 @@ alias ,dsw='docker swarm'
 alias ,dv='docker volume'
 
 ################################################################################
-# Download
-alias ,yda="yt-dlp --no-embed-subs --no-playlist --console-title -f \"ba\" -S \"+acodec:mp3,abr,asr\" -o \"%(title)s %(id)s.%(ext)s\" "
-alias ,ydal="yt-dlp --no-embed-subs --yes-playlist --console-title -f \"ba\" -S \"+acodec:mp3,abr,asr\" -o \"%(playlist_uploader&[{playlist_uploader}]|)s%(playlist_title)s %(playlist_id)s/%(playlist_autonumber)02d %(title)s %(id)s.%(ext)s\" "
-alias ,ydv="yt-dlp --no-playlist --console-title -f \"bv[ext=mp4][height<=${_YDV_RES:-1080}]+ba[ext=m4a]/b[ext=mp4][height<=?${_YDV_RES:-1080}]/bv*[height<=${_YDV_RES:-1080}]+ba/b[height<=?${_YDV_RES:-1080}]\" -S \"vcodec:h265\" -o \"%(title)s %(id)s.%(ext)s\" "
-alias ,ydvl="yt-dlp --yes-playlist --console-title -f \"bv[ext=mp4][height<=${_YDV_RES:-1080}]+ba[ext=m4a]/b[ext=mp4][height<=?${_YDV_RES:-1080}]/bv*[height<=${_YDV_RES:-1080}]+ba/b[height<=?${_YDV_RES:-1080}]\"  -S \"vcodec:h265\" -o \"%(playlist_uploader&\[{playlist_uploader}]|)s%(playlist_uploader)s]%(playlist_title)s %(playlist_id)s/%(playlist_autonumber)02d %(title)s %(id)s.%(ext)s\" "
-
-# wget args:
-#   -c: --continue
-#   -nc:--no-clobber
-#   -k: --convert-links
-#   -np:--no-parent
-#   -r: --recursive
-#   -p: --page-requisites
-#   -e: --execute=COMMAND
-#   -U: --user-agent=AGENT
-#
-#   --domains website.org
-#   --restrict-file-names=windows
-alias ,wgetsite="wget --random-wait -c -nc -k -np -r -p -e robots=off -U mozilla"
-
-################################################################################
-# fossil
+# FF: fossil
 alias ,f='fossil'
 
 ################################################################################
-# git
+# GG: git
 alias ,g='git'
 # add
 alias ,ga='git add'
@@ -180,20 +159,48 @@ alias ,gtrm='git tag -d'
 alias ,gexp='git archive --format=zip'
 
 ################################################################################
-# Network
-alias ,nettel='rlwrap nc'
-alias ,netlisten='lsof -P -i -n'
-alias ,netports='netstat -tulanp'
-alias ,netipinfo='curl ifconfig.me && curl ifconfig.me/host'
-
-################################################################################
-# kitten
+# KK: kitten
 alias ,kh='kitten hyperlinked-grep'
 alias ,ki='kitten icat'
 alias ,ks='kitten ssh'
+
+################################################################################
+# NN: Network
+alias ,nettel='rlwrap nc'
+alias ,netlisten='lsof -P -i -n'
+alias ,netports='netstat -tulanp'
+alias ,netip1='curl ifconfig.me/all.json'
+alias ,netip2='curl ip.network/more'
 
 ################################################################################
 # visual machines
 alias ,vmstartu='vmrun start ~/Virtual\ Machines.localized/u_vm_m1.vmwarevm nogui'
 alias ,vmstopu='vmrun stop ~/Virtual\ Machines.localized/u_vm_m1.vmwarevm'
 alias ,vml='vmrun list'
+
+################################################################################
+# wgetsite
+# wget args:
+#   -c: --continue
+#   -nc:--no-clobber
+#   -k: --convert-links
+#   -np:--no-parent
+#   -r: --recursive
+#   -p: --page-requisites
+#   -e: --execute=COMMAND
+#   -U: --user-agent=AGENT
+#
+#   --domains website.org
+#   --restrict-file-names=windows
+alias ,wgetsite="wget --random-wait -c -nc -k -np -r -p -e robots=off -U mozilla"
+
+################################################################################
+# Media Download
+
+alias ,xdv="yt-dlp --cookies $HOME/.local/x.txt --paths home:\"$HOME/Downloads/ytdl/x/\" --no-embed-metadata --no-playlist -f \"bv[ext=mp4][height<=${_YDV_RES:-1080}]+ba[ext=m4a]/b[ext=mp4][height<=?${_YDV_RES:-1080}]/bv*[height<=${_YDV_RES:-1080}]+ba/b[height<=?${_YDV_RES:-1080}]\"  -o \"%(id)s.%(ext)s\" "
+
+alias ,yda="yt-dlp --no-embed-subs --no-playlist --console-title -f \"ba\" -S \"+acodec:mp3,abr,asr\" -o \"%(title)s %(id)s.%(ext)s\" "
+alias ,ydal="yt-dlp --no-embed-subs --yes-playlist --console-title -f \"ba\" -S \"+acodec:mp3,abr,asr\" -o \"%(playlist_uploader&[{playlist_uploader}]|)s%(playlist_title)s %(playlist_id)s/%(playlist_autonumber)02d %(title)s %(id)s.%(ext)s\" "
+alias ,ydv="yt-dlp --no-playlist --console-title -f \"bv[ext=mp4][height<=${_YDV_RES:-1080}]+ba[ext=m4a]/b[ext=mp4][height<=?${_YDV_RES:-1080}]/bv*[height<=${_YDV_RES:-1080}]+ba/b[height<=?${_YDV_RES:-1080}]\" -S \"vcodec:h265\" -o \"%(title)s %(id)s.%(ext)s\" "
+alias ,ydvl="yt-dlp --yes-playlist --console-title -f \"bv[ext=mp4][height<=${_YDV_RES:-1080}]+ba[ext=m4a]/b[ext=mp4][height<=?${_YDV_RES:-1080}]/bv*[height<=${_YDV_RES:-1080}]+ba/b[height<=?${_YDV_RES:-1080}]\"  -S \"vcodec:h265\" -o \"%(playlist_uploader&\[{playlist_uploader}]|)s%(playlist_uploader)s]%(playlist_title)s %(playlist_id)s/%(playlist_autonumber)02d %(title)s %(id)s.%(ext)s\" "
+

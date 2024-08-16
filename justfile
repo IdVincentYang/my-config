@@ -213,8 +213,8 @@ sys-tray-extensions:
     brew install --cask hammerspoon
     #   tray: enhance date tray icon's feature
     # brew install --cask itsycal
-    #   tray: dozer, add hide icon feature
-    brew install --cask dozer
+    #   [not maintainment] tray: dozer, add hide icon feature
+    # brew install --cask dozer
     #   tray: easydict, translate util
     brew install --cask easydict
     #   tray: dropshelf, drag drop anything
