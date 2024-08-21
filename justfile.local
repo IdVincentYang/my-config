@@ -100,4 +100,8 @@ submodule:
         git submodule add -f "https://github.com/romkatv/powerlevel10k.git" "$_THEMEPOWERLEVEL10K"
         git commit -am "[submodule] $_THEMEPOWERLEVEL10K"
     fi
-
+    _YADB="share/yadb"
+    if [ ! -e "$_YADB" ]; then
+        git submodule add -f "https://github.com/ysbing/YADB.git" "$_YADB"
+        git commit -am "[submodule] $_YADB"
+    fi
