@@ -1,6 +1,6 @@
 which gls > /dev/null && alias ls='gls -G --color=auto --hyperlink=auto'
 
-alias vi='mvim --servername shell --remote'
+alias vi='mvim --servername shell --remote-silent'
 
 alias ,a='brew'
 alias ,aic='brew install --cask'
